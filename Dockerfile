@@ -1,7 +1,7 @@
 FROM alpine
 
-ENV _3PROXY_VERSION 0.8.10
-ENV _3PROXY_DOWNLOAD_URL https://github.com/z3APA3A/3proxy/archive/0.8.10.tar.gz
+ENV _3PROXY_VERSION 0.8.11
+ENV _3PROXY_DOWNLOAD_URL https://github.com/z3APA3A/3proxy/archive/0.8.11.tar.gz
 ENV _3PROXY_DOWNLOAD_SHA1 b9a35c1f89003974027b459c4a4eb7fce078d0f5
 
 RUN set -ex \
@@ -28,5 +28,6 @@ RUN set -ex \
 	&& apk del .build-deps
 
 COPY 3proxy.cfg /etc
+EXPOSE 1080
 EXPOSE 8080
 ENTRYPOINT ["3proxy", "/etc/3proxy.cfg"]
